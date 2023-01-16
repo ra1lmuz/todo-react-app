@@ -1,4 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+const UseEffectComponent = () => {
+  useEffect(() => {
+    return () => console.log("Компонент был удален со страницы");
+  }, []);
+
+  return (
+    <div>
+      Тестовый компонент для проверки удаления компонента со страницы
+    </div>
+  );
+};
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -10,6 +22,13 @@ const App = () => {
     email: "",
     password: "",
   });
+
+  const [a, setA] = useState(0);
+  console.log("За пределами useEffect");
+
+  useEffect(() => {
+    console.log("useEffect()");
+  }, [count, form]);
 
   const onChangeFormHandle = (e) => {
     setForm((prevState) => {
@@ -39,6 +58,10 @@ const App = () => {
       <p>Вы нажали на меня {count} раз(а)</p>
       <button onClick={() => setCount((prev) => prev + 1)}>+1</button>
       <button onClick={() => setCount((prev) => prev + 5)}>+5</button>
+
+      {
+        count >= 10 ? <h1>Компонент больше не доступен</h1> : <UseEffectComponent />
+      }
 
       <br />
 
