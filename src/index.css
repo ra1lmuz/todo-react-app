@@ -14,5 +14,90 @@ body {
 
 .layout {
   max-width: 960px;
-  margin: 0 auto;
+  margin: 100px 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  background-color: rgb(255, 214, 139);
+}
+
+.top {
+  background-color: bisque;
+  text-align: center;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-top: 100px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  transition: all .3s ease-in-out;
+}
+
+.item:hover {
+  transition: all .3s ease-in-out;
+  transform: translateY(-5px);
+}
+
+.btn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.accept {
+  border: none;
+  background-color: #35a535;
+  cursor: pointer;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all .3s ease-in-out;
+}
+
+.accept:hover {
+  background-color: green;
+  transition: all .3s ease-in-out;
+}
+
+.delete {
+  border: none;
+  background-color: tomato;
+  cursor: pointer;
+  padding: 5px 15px;
+  color: #fff;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all .3s ease-in-out;
+}
+
+.delete:hover {
+  background-color: red;
+  transition: all .3s ease-in-out;
+}
+
+input {
+  margin-top: 25px;
+  border: none;
+  outline: none;
+  padding: 15px;
+  width: 380px;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+h2, h3 {
+  color: #333;
 }

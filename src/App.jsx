@@ -1,5 +1,13 @@
 import { useState, useEffect } from "react";
 
+const formatDate = (date) => {
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+
+    return `${day}.${month}.${year}`;
+}
+
 const App = () => {
   // Состояние (данные) задач
   const [todos, setTodos] = useState([
@@ -79,7 +87,7 @@ const App = () => {
 
   return (
     <div className="layout">
-      <div>
+      <div className="top">
         <form onSubmit={(e) => onSubmitHandle(e)}>
           <h2>Добавит задачу:</h2>
           <input
@@ -92,19 +100,19 @@ const App = () => {
       </div>
 
       {/* Все задачи */}
-      <div>
+      <div className="box">
         {/* Одна задача */}
         {todos.map((todo) => {
           return (
-            <div>
+            <div className="item">
               <h3>
-                {todo.name} ({todo.date.toString()})
+                {todo.name} ({formatDate(todo.date)})
               </h3>
-              <div>
-                <button onClick={() => onCheckedToggle(todo.id)}>
+              <div className="btn">
+                <button className="accept" onClick={() => onCheckedToggle(todo.id)}>
                   {todo.checked ? "Не выполнена" : "Выполнено"}
                 </button>
-                <button onClick={() => onDeleteTodoById(todo.id)}>
+                <button className="delete" onClick={() => onDeleteTodoById(todo.id)}>
                   Удалить
                 </button>
               </div>
